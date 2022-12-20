@@ -2,12 +2,7 @@ package Transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
-    private final int year;
-    private final String country;
-    private String color;
+public class Car extends Transport{
 
     private double engineVolume;
     private String transmission;
@@ -64,60 +59,33 @@ public class Car {
 
     }
 
-    public Car(String brand, String model, int year, String country, String color, double engineVolume,
+    public Car(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume,
                String transmission, String bodyType, String regNumber, int numberOfSeats) {
-
-        if (year <= 0) year = 2000;
+    super(brand, model, year, country, color, maxSpeed);
         if (engineVolume <= 0) engineVolume = 1.5;
         if (numberOfSeats <= 0) numberOfSeats = 5;
-        if (nullString(color)) color = "белый";
-        if (nullString(brand)) brand = "default";
-        if (nullString(model)) model = "default";
-        if (nullString(country)) country = "default";
         if (nullString(transmission)) transmission = "не указан";
         if (nullString(bodyType)) bodyType = "не указан";
         if (nullString(regNumber)) regNumber = "не указан";
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
+
         this.engineVolume = engineVolume;
         this.transmission = transmission;
         this.bodyType = bodyType;
         this.regNumber = regNumber;
         this.numberOfSeats = numberOfSeats;
-
     }
 
-    public static boolean nullString(String s) {
-        return (s == null || s.isEmpty());
-    }
 
     @Override
     public String toString() {
-        return "Автомобиль " + brand + " " + model + ", " + year +
-                " год выауска, страна сборки " + country +
-                ", цвет " + color + ", объем двигателя " + engineVolume + " л\n\t\t\t" +
+        return "Автомобиль " + getBrand() + " " + getModel() + ", " + getYear() +
+                " год выауска, страна сборки " + getCountry() +
+                ", цвет " + getColor() + ", объем двигателя " + engineVolume + " л\n\t\t\t" +
                 "КП - " + transmission + ", " + numberOfSeats + "-местный " + bodyType + " рег.номер " + regNumber;
 
     }
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
 
     public String getBodyType() {
         return bodyType;
@@ -125,14 +93,6 @@ public class Car {
 
     public int getNumberOfSeats() {
         return numberOfSeats;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public double getEngineVolume() {
