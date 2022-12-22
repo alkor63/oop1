@@ -4,28 +4,16 @@ public class Auto {
 
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+    private double engineVolume;
 
-    public Auto(String brand, String model, int year, String country, String color, int maxSpeed) {
-        if (year <= 0) year = 2000;
-        if (nullString(color)) color = "белый";
+
+    public Auto(String brand, String model, double engineVolume) {
+
         if (nullString(brand)) brand = "default brand";
         if (nullString(model)) model = "default model";
-        if (nullString(country)) country = "default country";
         this.brand = brand;
         this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        setMaxSpeed(maxSpeed);
-    }
-
-    public Auto(String brand, String model, int year, String country) {
-        this(brand,model,year,country,"white",0);
-
+        setEngineVolume(engineVolume);
     }
 
     public String getBrand() {
@@ -36,32 +24,19 @@ public class Auto {
         return model;
     }
 
-    public int getYear() {
-        return year;
+
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        if (maxSpeed < 0) maxSpeed = -1 * maxSpeed;
-        this.maxSpeed = maxSpeed;
+    public void setEngineVolume(double engineVolume) {
+        if (engineVolume < 0) engineVolume = -1 * engineVolume;
+        this.engineVolume = engineVolume;
     }
     public static boolean nullString(String s) {
         return (s == null || s.isEmpty());
     }
+    public void startEngine(){}
+    public void stopEngine(){}
 
 }
