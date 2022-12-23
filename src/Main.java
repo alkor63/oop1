@@ -4,6 +4,7 @@
 import AutoRacing.Bus;
 import AutoRacing.Car;
 import AutoRacing.AutoService;
+import AutoRacing.Truck;
 
 import java.time.LocalDate;
 
@@ -16,7 +17,6 @@ public class Main {
         cars[2] = new Car("BMW","Z8", 3.0);
         cars[3] = new Car("Kia","Sportage", 2.4);
 
-
         for (Car car: cars)
             System.out.println(car);
 
@@ -28,10 +28,19 @@ public class Main {
 
         for (Bus bus: buses)
             System.out.println(bus);
-// вводим данные страхового полиса
-        LocalDate polisDate = LocalDate.of(2022, 11, 28);
-        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");
-        AutoService.checkInsNumber(carIns.getNumIns());
-        System.out.println("Текущая дата : "+LocalDate.now());
+
+        Truck[] trucks = new Truck[4];
+        trucks[0] = new Truck("Nissan","Primera",2.0);
+        trucks[1] = new Truck("Audi","A8 50 L TDI quattro",3.0);
+        trucks[2] = new Truck("BMW","Z8", 3.0);
+        trucks[3] = new Truck("Kia","Sportage", 2.4);
+
+        for (Truck truck: trucks)
+            System.out.println(truck);// вводим данные страхового полиса
+
+//        LocalDate polisDate = LocalDate.of(2022, 11, 28);
+//        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");
+//        AutoService.checkInsNumber(carIns.getNumIns());
+//        System.out.println("Текущая дата : "+LocalDate.now());
     }
 }
