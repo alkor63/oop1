@@ -5,8 +5,9 @@ import AutoRacing.Bus;
 import AutoRacing.Car;
 import AutoRacing.AutoService;
 import AutoRacing.Truck;
+import AutoRacing.Driver;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,6 +39,12 @@ public class Main {
         for (Truck truck: trucks)
             System.out.println(truck);
 
+        Driver<Car> ivanov = new Driver<>("Иванов","Иван","Иванович",18, cars[1]);
+        Driver<Bus> petrov = new Driver<>("Петров","Петр","Петрович",19, buses[2]);
+        Driver<Truck> stepanov = new Driver<>("Степанов","Степан","Степанич",15, trucks[0]);
+        System.out.println(ivanov);
+        System.out.println(petrov);
+        System.out.println(stepanov);
 // вводим данные страхового полиса
 //        LocalDate polisDate = LocalDate.of(2022, 11, 28);
 //        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");

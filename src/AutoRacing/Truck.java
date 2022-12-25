@@ -21,7 +21,7 @@ public class Truck extends Auto implements Competing{
     }
     @Override
     public String toString() {
-        return "Racing грузовик "+getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+" л";
+        return "грузовик "+getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+" л";
     }
 
     @Override

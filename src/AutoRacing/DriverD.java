@@ -4,18 +4,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Objects;
-@Getter
 @Setter
-
-public class Driver <T extends Auto> {
+@Getter
+public class DriverD {
     private String lastName;
     private String name;
     private String middleName;
     private boolean license;
     private int drivingExperience;
-    private T vehicle;
+    private Bus vehicle;
 
-    public Driver(String lastName, String name, String middleName, int drivingExperience, T vehicle) {
+    public DriverD(String lastName, String name, String middleName, int drivingExperience, Bus vehicle) {
         this.lastName = lastName;
         this.name = name;
         this.middleName = middleName;
@@ -36,7 +35,7 @@ public class Driver <T extends Auto> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Driver<?> driver = (Driver<?>) o;
+        DriverD driver = (DriverD) o;
         return Objects.equals(lastName, driver.lastName) && Objects.equals(name, driver.name) && Objects.equals(middleName, driver.middleName) && Objects.equals(vehicle, driver.vehicle);
     }
 

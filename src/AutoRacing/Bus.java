@@ -18,7 +18,7 @@ public class Bus extends Auto implements Competing{
     }
     @Override
     public String toString() {
-        return "Racing автобус "+getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+" л";
+        return "автобус "+getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+" л";
     }
 
     @Override
