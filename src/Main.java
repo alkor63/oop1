@@ -1,11 +1,7 @@
 //import Transport.Bus;
 //import Transport.Car;
 //import Transport.AutoService;
-import AutoRacing.Bus;
-import AutoRacing.Car;
-import AutoRacing.AutoService;
-import AutoRacing.Truck;
-import AutoRacing.Driver;
+import AutoRacing.*;
 
 // import java.time.LocalDate;
 
@@ -45,6 +41,13 @@ public class Main {
         System.out.println(ivanov);
         System.out.println(petrov);
         System.out.println(stepanov);
+
+        DriverB ivan = new DriverB("Иванов","Иван","Иванович",18, cars[2]);
+        DriverC petr = new DriverC("Петров","Петр","Петрович",19, trucks[3]);
+        DriverD stepan = new DriverD("Степанов","Степан","Степанич",15, buses[1]);
+        System.out.println(ivan);
+        System.out.println(petr);
+        System.out.println(stepan);
 // вводим данные страхового полиса
 //        LocalDate polisDate = LocalDate.of(2022, 11, 28);
 //        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");
