@@ -42,9 +42,9 @@ public class Main {
         System.out.println(petrov);
         System.out.println(stepanov);
 
-        DriverB ivan = new DriverB("Иванов","Иван","Иванович",18, cars[2]);
-        DriverC petr = new DriverC("Петров","Петр","Петрович",19, trucks[3]);
-        DriverD stepan = new DriverD("Степанов","Степан","Степанич",15, buses[1]);
+        DriverB ivan = new DriverB("Иванов","Иван","Иванович",19, cars[2]);
+        DriverC petr = new DriverC("Петров","Петр","Петрович",21, trucks[3]);
+        DriverD stepan = new DriverD("Степанов","Степан","Степанич",17, buses[1]);
         System.out.println(ivan);
         System.out.println(petr);
         System.out.println(stepan);
