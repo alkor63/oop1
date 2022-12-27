@@ -3,6 +3,7 @@ package AutoRacing;
 import java.time.LocalDate;
 
 public class Car extends Auto implements Competing{
+
     static int count;
     public static final int[] MAX_SPEED = {226, 232, 228, 237};
     public static final double[] TOP_LAP = {1.56, 1.71, 1.60, 1.75};
@@ -31,13 +32,13 @@ public class Car extends Auto implements Competing{
 
     @Override
     public int maxSpeed(int i) {
-        System.out.println("Max speed of car = " +MAX_SPEED[i-1]+" km/h");
+//        System.out.println("Max speed of car = " +MAX_SPEED[i-1]+" km/h");
         return MAX_SPEED[i-1];
     }
 
     @Override
     public double bestLapTime(int i) {
-        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
+//        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
         return TOP_LAP[i-1];
     }
 }

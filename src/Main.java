@@ -27,10 +27,10 @@ public class Main {
             System.out.println(bus);
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("MAZ","6440 RR",12.5);
-        trucks[1] = new Truck("IVECO","Powerstar",13.0);
-        trucks[2] = new Truck("Tatra","Phoenix", 12.5);
-        trucks[3] = new Truck("Mercedes","Zetros", 13.0);
+        trucks[0] = new Truck("MAZ","6440 RR",12.5, TruckType.N2);
+        trucks[1] = new Truck("IVECO","Powerstar",13.0, TruckType.N3);
+        trucks[2] = new Truck("Tatra","Phoenix", 12.5, TruckType.N2);
+        trucks[3] = new Truck("Mercedes","Zetros", 13.0, TruckType.N1);
 
         for (Truck truck: trucks)
             System.out.println(truck);

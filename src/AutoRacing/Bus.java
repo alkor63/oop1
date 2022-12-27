@@ -28,13 +28,13 @@ public class Bus extends Auto implements Competing{
 
     @Override
     public int maxSpeed(int i) {
-        System.out.println("Max speed of bus = " +MAX_SPEED[i-1]+" km/h");
+//        System.out.println("Max speed of bus = " +MAX_SPEED[i-1]+" km/h");
         return MAX_SPEED[i-1];
     }
 
     @Override
     public double bestLapTime(int i) {
-        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
+//        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
         return TOP_LAP[i-1];
     }
 }
