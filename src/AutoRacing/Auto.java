@@ -39,11 +39,5 @@ public class Auto {
     }
     public void startEngine(){}
     public void stopEngine(){}
-    public void printType(String type){
-        if (nullString(type)) {
-            type = " Данных по транспортному средству недостаточно";
-        }
-        System.out.println(type);
-    }
-
+    public void printType(){}
 }

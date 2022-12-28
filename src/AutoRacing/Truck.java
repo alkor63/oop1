@@ -13,6 +13,7 @@ public class Truck extends Auto implements Competing {
         count++;
         bestLapTime(count);
         maxSpeed(count);
+        printType(truckType);
     }
 
 
@@ -29,7 +30,12 @@ public class Truck extends Auto implements Competing {
         return "грузовик " + getBrand() + " " + getModel() + " с двигаталем " + getEngineVolume() +
                 " л. Грузоподъемность" + truckType.getTonnage();
     }
-
+    public void printType(TruckType type) {
+        if (nullString(String.valueOf(type))) {
+            System.out.println(" Данных по транспортному средству недостаточно");
+        }
+        else System.out.println("ТИП грузовика = " +type);
+    }
     @Override
     public boolean pitStop() {
         return true;

@@ -11,7 +11,9 @@ public class Bus extends Auto implements Competing{
         count ++;
         bestLapTime(count);
         maxSpeed(count);
+        printType(busType);
     }
+
     public void startEngine(){
         System.out.println("Запустили "+getEngineVolume()+"л двигатель автобуса "+getBrand()+" "+getModel());
     }
@@ -39,5 +41,11 @@ public class Bus extends Auto implements Competing{
     public double bestLapTime(int i) {
 //        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
         return TOP_LAP[i-1];
+    }
+    public void printType(BusType type) {
+        if (nullString(String.valueOf(type))) {
+            System.out.println(" Данных по транспортному средству недостаточно");
+        }
+        else System.out.println("ТИП ТС = " +type);
     }
 }

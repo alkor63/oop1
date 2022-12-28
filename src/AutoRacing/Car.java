@@ -14,6 +14,7 @@ public class Car extends Auto implements Competing{
         count ++;
         bestLapTime(count);
         maxSpeed(count);
+        printType(bodyType);
     }
     public void startEngine(){
         System.out.println("Запустили "+getEngineVolume()+"л двигатель автомобиля "+getBrand()+" "+getModel());
@@ -32,7 +33,12 @@ public class Car extends Auto implements Competing{
     public boolean pitStop() {
         return true;
     }
-
+    public void printType(CarType type) {
+        if (nullString(String.valueOf(type))) {
+            System.out.println(" Данных по транспортному средству недостаточно");
+        }
+        else System.out.println("ТИП легкового ТС = " + type);
+    }
     @Override
     public int maxSpeed(int i) {
 //        System.out.println("Max speed of car = " +MAX_SPEED[i-1]+" km/h");
