@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 public class Car extends Auto implements Competing{
 
+    CarType bodyType;
     static int count;
     public static final int[] MAX_SPEED = {226, 232, 228, 237};
     public static final double[] TOP_LAP = {1.56, 1.71, 1.60, 1.75};
-    public Car(String brand, String model, double engineVolume) {
+    public Car(String brand, String model, double engineVolume, CarType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
         count ++;
         bestLapTime(count);
         maxSpeed(count);
@@ -22,7 +24,8 @@ public class Car extends Auto implements Competing{
 
     @Override
     public String toString() {
-        return getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+" л";
+        return getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+
+                " л, тип кузова - "+ bodyType.getBodyType();
     }
 
     @Override

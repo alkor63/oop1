@@ -1,6 +1,7 @@
 //import Transport.Bus;
 //import Transport.Car;
 //import Transport.AutoService;
+
 import AutoRacing.*;
 
 // import java.time.LocalDate;
@@ -9,42 +10,42 @@ public class Main {
     public static void main(String[] args) {
 
         Car[] cars = new Car[4];
-        cars[0] = new Car("Nissan","Primera",2.0);
-        cars[1] = new Car("Audi","A8 50 L TDI quattro",3.0);
-        cars[2] = new Car("BMW","Z8", 3.0);
-        cars[3] = new Car("Kia","Sportage", 2.4);
+        cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP);
+        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN);
+        cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE);
+        cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK);
 
-        for (Car car: cars)
+        for (Car car : cars)
             System.out.println(car);
 
         Bus[] buses = new Bus[4];
-        buses[0]= new Bus("МАЗ","251",4.8,BusType.SMALL);
-        buses[1]= new Bus("MAN","Lion's Coach 49",5.2,BusType.LARGE);
-        buses[2]= new Bus("Volvo","7700",6.0,BusType.EXRTA_LARGE);
-        buses[3]= new Bus("Ikarus","386",4.6,BusType.MEDIUM);
+        buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL);
+        buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE);
+        buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE);
+        buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM);
 
-        for (Bus bus: buses)
+        for (Bus bus : buses)
             System.out.println(bus);
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("MAZ","6440 RR",12.5, TruckType.N2);
-        trucks[1] = new Truck("IVECO","Powerstar",13.0, TruckType.N3);
-        trucks[2] = new Truck("Tatra","Phoenix", 12.5, TruckType.N2);
-        trucks[3] = new Truck("Mercedes","Zetros", 13.0, TruckType.N1);
+        trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2);
+        trucks[1] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3);
+        trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2);
+        trucks[3] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1);
 
-        for (Truck truck: trucks)
+        for (Truck truck : trucks)
             System.out.println(truck);
 
-        Driver<Car> ivanov = new Driver<>("Иванов","Иван","Иванович",18, cars[1]);
-        Driver<Bus> petrov = new Driver<>("Петров","Петр","Петрович",19, buses[2]);
-        Driver<Truck> stepanov = new Driver<>("Степанов","Степан","Степанич",15, trucks[0]);
+        Driver<Car> ivanov = new Driver<>("Иванов", "Иван", "Иванович", 18, cars[1]);
+        Driver<Bus> petrov = new Driver<>("Петров", "Петр", "Петрович", 19, buses[2]);
+        Driver<Truck> stepanov = new Driver<>("Степанов", "Степан", "Степанич", 15, trucks[0]);
         System.out.println(ivanov);
         System.out.println(petrov);
         System.out.println(stepanov);
 
-        DriverB ivan = new DriverB("Иванов","Иван","Иванович",19, cars[2]);
-        DriverC petr = new DriverC("Петров","Петр","Петрович",21, trucks[3]);
-        DriverD stepan = new DriverD("Степанов","Степан","Степанич",17, buses[1]);
+        DriverB ivan = new DriverB("Иванов", "Иван", "Иванович", 19, cars[2]);
+        DriverC petr = new DriverC("Петров", "Петр", "Петрович", 21, trucks[3]);
+        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 17, buses[1]);
         System.out.println(ivan);
         System.out.println(petr);
         System.out.println(stepan);
