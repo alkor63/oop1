@@ -11,6 +11,7 @@ public class Auto {
 
         if (nullString(brand)) brand = "default brand";
         if (nullString(model)) model = "default model";
+
         this.brand = brand;
         this.model = model;
         setEngineVolume(engineVolume);
@@ -38,5 +39,11 @@ public class Auto {
     }
     public void startEngine(){}
     public void stopEngine(){}
+    public void printType(String type){
+        if (nullString(type)) {
+            type = " Данных по транспортному средству недостаточно";
+        }
+        System.out.println(type);
+    }
 
 }
