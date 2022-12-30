@@ -49,6 +49,11 @@ public class Main {
         System.out.println(ivan);
         System.out.println(petr);
         System.out.println(stepan);
+
+        Car.goToDiagnostic(cars[2]);
+        Truck.goToDiagnostic(trucks[1]);
+//        Bus.goToDiagnostic(buses[0]);
+
 // вводим данные страхового полиса
 //        LocalDate polisDate = LocalDate.of(2022, 11, 28);
 //        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");

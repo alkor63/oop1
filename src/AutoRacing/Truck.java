@@ -1,10 +1,10 @@
 package AutoRacing;
+
 public class Truck extends Auto implements Competing {
     TruckType truckType;
     static int count;
     public static final int[] MAX_SPEED = {126, 132, 128, 137};
     public static final double[] TOP_LAP = {2.16, 2.11, 2.30, 2.25};
-
 
 
     public Truck(String brand, String model, double engineVolume, TruckType truckType) {
@@ -30,12 +30,13 @@ public class Truck extends Auto implements Competing {
         return "грузовик " + getBrand() + " " + getModel() + " с двигаталем " + getEngineVolume() +
                 " л. Грузоподъемность" + truckType.getTonnage();
     }
+
     public void printType(TruckType type) {
         if (nullString(String.valueOf(type))) {
             System.out.println(" Данных по транспортному средству недостаточно");
-        }
-        else System.out.println("ТИП грузовика = " +type);
+        } else System.out.println("ТИП грузовика = " + type);
     }
+
     @Override
     public boolean pitStop() {
         return true;
@@ -51,5 +52,10 @@ public class Truck extends Auto implements Competing {
     public int maxSpeed(int count) {
 //        System.out.println("Max speed of truck = " + MAX_SPEED[count - 1] + " km/h");
         return MAX_SPEED[count - 1];
+    }
+
+    public static void goToDiagnostic(Truck truck) {
+        System.out.println("Грузовику " + truck.getBrand() + " " + truck.getModel() +
+                " с двигаталем " + truck.getEngineVolume() + " л нужно пройти диагностику");
     }
 }

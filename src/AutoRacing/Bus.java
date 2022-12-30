@@ -48,4 +48,7 @@ public class Bus extends Auto implements Competing{
         }
         else System.out.println("ТИП ТС = " +type);
     }
+    public static void goToDiagnostic(Bus bus){
+        throw new RuntimeException("Автобусы НЕ могут проходить диагностику!!!");
+    }
 }

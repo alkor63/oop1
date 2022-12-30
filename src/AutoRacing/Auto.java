@@ -40,4 +40,5 @@ public class Auto {
     public void startEngine(){}
     public void stopEngine(){}
     public void printType(){}
+    public void goToDiagnostic(){}
 }

@@ -50,4 +50,8 @@ public class Car extends Auto implements Competing{
 //        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
         return TOP_LAP[i-1];
     }
+    public static void goToDiagnostic(Car car){
+        System.out.println("Автомобилю "+car.getBrand()+" "+car.getModel()+" с двигаталем "+car.getEngineVolume()+
+                " л нужно пройти диагностику");
+    }
 }
