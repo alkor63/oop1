@@ -7,7 +7,7 @@ import AutoRacing.*;
 // import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalLicenseException {
 
         Car[] cars = new Car[4];
         cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP);
@@ -36,16 +36,16 @@ public class Main {
         for (Truck truck : trucks)
             System.out.println(truck);
 
-        Driver<Car> ivanov = new Driver<>("Иванов", "Иван", "Иванович", 18, cars[1]);
-        Driver<Bus> petrov = new Driver<>("Петров", "Петр", "Петрович", 19, buses[2]);
-        Driver<Truck> stepanov = new Driver<>("Степанов", "Степан", "Степанич", 15, trucks[0]);
+        Driver<Car> ivanov = new Driver<>("Иванов", "Иван", "Иванович", 'b', 18, cars[1]);
+        Driver<Bus> petrov = new Driver<>("Петров", "Петр", "Петрович", 'd', 19, buses[2]);
+        Driver<Truck> stepanov = new Driver<>("Степанов", "Степан", "Степанич", 'C', 15, trucks[0]);
         System.out.println(ivanov);
         System.out.println(petrov);
         System.out.println(stepanov);
 
-        DriverB ivan = new DriverB("Иванов", "Иван", "Иванович", 19, cars[2]);
-        DriverC petr = new DriverC("Петров", "Петр", "Петрович", 21, trucks[3]);
-        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 17, buses[1]);
+        DriverB ivan = new DriverB("Иванов", "Иван", "Иванович", 'B', 19, cars[2]);
+        DriverC petr = new DriverC("Петров", "Петр", "Петрович", ' ', 21, trucks[3]);
+        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 'A', 17, buses[1]);
         System.out.println(ivan);
         System.out.println(petr);
         System.out.println(stepan);
@@ -54,10 +54,30 @@ public class Main {
         Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);
 
+        checkDriver(ivan, petr, stepan);
+
 // вводим данные страхового полиса
 //        LocalDate polisDate = LocalDate.of(2022, 11, 28);
 //        Car.Insurance carIns = new Car.Insurance(polisDate, 5678.5, "78GFR876TFC");
 //        AutoService.checkInsNumber(carIns.getNumIns());
 //        System.out.println("Текущая дата : "+LocalDate.now());
     }
+
+    public static void checkDriver(Driver... drivers) throws IllegalLicenseException {
+        for (Driver driver : drivers) {
+            try {
+                checkCategory(driver);
+            } catch (IllegalLicenseException e) {
+                System.out.println("Водителю " + driver.getName() + " " + driver.getLastName() + e.getMessage());
+
+            }
+        }
+    }
+
+    public static void checkCategory(Driver driver) throws IllegalLicenseException {
+        if (driver.getCategory() != 'B' && driver.getCategory() != 'C' && driver.getCategory() != 'D') {
+            throw new IllegalLicenseException(" необходимо указать тип прав!");
+        }
+    }
+
 }

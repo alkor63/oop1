@@ -12,15 +12,18 @@ public class Driver <T extends Auto> {
     private String name;
     private String middleName;
     private boolean license;
+    private char category;
     private int drivingExperience;
     private T vehicle;
 
-    public Driver(String lastName, String name, String middleName, int drivingExperience, T vehicle) {
+    public Driver(String lastName, String name, String middleName, char category, int drivingExperience, T vehicle) {
         this.lastName = lastName;
         this.name = name;
         this.middleName = middleName;
+        this.category = Character.toUpperCase(category);
         this.drivingExperience = drivingExperience;
         this.vehicle = vehicle;
+        this.license = true;
     }
 
     public static void startMoving(){};
@@ -29,7 +32,7 @@ public class Driver <T extends Auto> {
 
     @Override
     public String toString() {
-        return "Водитель " + lastName +" "+ name+" "+middleName+" управляет автомобилем " +  vehicle +" и будет участвовать в заезде";
+        return "Водитель " + lastName +" "+ name+" "+middleName+" (категория "+category+") управляет автомобилем " +  vehicle +" и будет участвовать в заезде";
     }
 
     @Override
