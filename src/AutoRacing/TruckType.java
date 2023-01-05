@@ -1,19 +1,35 @@
 package AutoRacing;
 
+
+import static AutoRacing.Auto.nullString;
+
 public enum TruckType {
 
-        N1(" до 3,5 тонн"),
-        N2(" от 3,5 до 12 тонн"),
-        N3(" свыше 12 тонн");
+    N1(0f, 3.5f),
+    N2(3.5f, 12f),
+    N3(12f, null);
 
-        private String tonnage;
+    private Float tonnageFrom;
+    private Float tonnageTo;
 
-        TruckType(String tonnage) {
-            this.tonnage = tonnage;
-        }
 
-        public String getTonnage() {
-            return tonnage;
-        }
+    TruckType(Float tonnageFrom, Float tonnageTo) {
+        if (tonnageFrom == null) tonnageFrom = 0f;
+        this.tonnageFrom = tonnageFrom;
+        if (tonnageTo == null) tonnageTo = 0f;
+        this.tonnageTo = tonnageTo;
     }
+
+    public String getTonnage() {
+        String tonnage;
+        if (nullString(Float.toString(tonnageFrom)) || tonnageFrom == 0) {
+            tonnage = " до " + tonnageTo + " тонн";
+            return tonnage;
+        } else if (nullString(tonnageTo.toString()) || tonnageTo == 0) {
+            tonnage = " свыше " + tonnageFrom + " тонн";
+            return tonnage;
+        } else tonnage = " свыше " + tonnageFrom + " до " + tonnageTo + " тонн";
+        return tonnage;
+    }
+}
 
