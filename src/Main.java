@@ -18,11 +18,12 @@ public class Main {
         for (Car car : cars)
             System.out.println(car);
 
-        Bus[] buses = new Bus[4];
+        Bus[] buses = new Bus[5];
         buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL);
         buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE);
         buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE);
         buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM);
+        buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL);
 
         for (Bus bus : buses)
             System.out.println(bus);

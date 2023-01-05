@@ -3,8 +3,8 @@ package AutoRacing;
 public class Bus extends Auto implements Competing{
     BusType busType;
     static int count;
-    public static final int[] MAX_SPEED = {96, 92, 98, 97};
-    public static final double[] TOP_LAP = {3.16, 3.11, 3.30, 3.25};
+    public static final int[] MAX_SPEED = {96, 92, 98, 97, 111};
+    public static final double[] TOP_LAP = {3.16, 3.11, 3.30, 3.25, 2.99};
     public Bus(String brand, String model, double engineVolume, BusType busType) {
         super(brand, model, engineVolume);
         this.busType = busType;
