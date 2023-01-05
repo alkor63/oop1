@@ -44,8 +44,8 @@ public class Main {
         System.out.println(stepanov);
 
         DriverB ivan = new DriverB("Иванов", "Иван", "Иванович", 'B', 19, cars[2]);
-        DriverC petr = new DriverC("Петров", "Петр", "Петрович", ' ', 21, trucks[3]);
-        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 'A', 17, buses[1]);
+        DriverC petr = new DriverC("Петров", "Петр", "Петрович", 'с', 21, trucks[3]);
+        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 'д', 17, buses[1]);
         System.out.println(ivan);
         System.out.println(petr);
         System.out.println(stepan);
@@ -75,8 +75,8 @@ public class Main {
     }
 
     public static void checkCategory(Driver driver) throws IllegalLicenseException {
-        if (driver.getCategory() != 'B' && driver.getCategory() != 'C' && driver.getCategory() != 'D') {
-            throw new IllegalLicenseException(" необходимо указать тип прав!");
+        if ((driver.getCategory()) < 'B' || driver.getCategory() > 'Д') {
+            throw new IllegalLicenseException(" необходимо корректно указать тип прав!");
         }
     }
 
