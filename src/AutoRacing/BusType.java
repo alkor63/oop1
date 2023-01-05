@@ -9,8 +9,8 @@ public enum BusType {
     LARGE(60, 80),
     EXRTA_LARGE(100, 120);
 
-    private Integer capacityFrom;
-    private Integer capacityTo;
+    private final Integer capacityFrom;
+    private final Integer capacityTo;
 
     BusType(Integer capacityFrom, Integer capacityTo) {
         if (capacityFrom == null) capacityFrom = 0;

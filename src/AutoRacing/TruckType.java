@@ -9,8 +9,8 @@ public enum TruckType {
     N2(3.5f, 12f),
     N3(12f, null);
 
-    private Float tonnageFrom;
-    private Float tonnageTo;
+    private final Float tonnageFrom;
+    private final Float tonnageTo;
 
 
     TruckType(Float tonnageFrom, Float tonnageTo) {
