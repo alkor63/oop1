@@ -11,7 +11,7 @@ public class Bus extends Auto implements Competing{
         count ++;
         bestLapTime(count);
         maxSpeed(count);
-        printType(busType);
+//        printType(busType);
     }
 
     public void startEngine(){

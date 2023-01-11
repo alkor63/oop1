@@ -4,20 +4,24 @@
 
 import AutoRacing.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws IllegalLicenseException {
-
+        List<Auto> autos = new ArrayList<>();
         Car[] cars = new Car[4];
         cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP);
         cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN);
         cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE);
         cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK);
 
-        for (Car car : cars)
+        for (Car car : cars) {
             System.out.println(car);
-
+            autos.add(car);
+        }
         Bus[] buses = new Bus[5];
         buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL);
         buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE);
@@ -25,8 +29,10 @@ public class Main {
         buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM);
         buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL);
 
-        for (Bus bus : buses)
+        for (Bus bus : buses) {
             System.out.println(bus);
+            autos.add(bus);
+        }
 
         Truck[] trucks = new Truck[4];
         trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2);
@@ -34,8 +40,12 @@ public class Main {
         trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2);
         trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3);
 
-        for (Truck truck : trucks)
+        for (Truck truck : trucks) {
             System.out.println(truck);
+            autos.add(truck);
+        }
+        System.out.println("   ************* в нашей конюшне "+ autos.size() +" автомобилей ************* \n");
+//   собрали в один список все автомобили, дальше "нанимаем" водителей
 
         Driver<Car> ivanov = new Driver<>("Иванов", "Иван", "Иванович", 'b', 18, cars[1]);
         Driver<Bus> petrov = new Driver<>("Петров", "Петр", "Петрович", 'd', 19, buses[2]);

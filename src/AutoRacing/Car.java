@@ -14,7 +14,7 @@ public class Car extends Auto implements Competing{
         count ++;
         bestLapTime(count);
         maxSpeed(count);
-        printType(bodyType);
+//        printType(bodyType);
     }
     public void startEngine(){
         System.out.println("Запустили "+getEngineVolume()+"л двигатель автомобиля "+getBrand()+" "+getModel());

@@ -13,7 +13,7 @@ public class Truck extends Auto implements Competing {
         count++;
         bestLapTime(count);
         maxSpeed(count);
-        printType(truckType);
+//        printType(truckType);
     }
 
 
