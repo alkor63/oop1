@@ -70,7 +70,6 @@ public class Main {
                 checkCategory(driver);
             } catch (IllegalLicenseException e) {
                 System.out.println("Водителю " + driver.getName() + " " + driver.getLastName() + e.getMessage());
-
             }
         }
     }
