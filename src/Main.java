@@ -5,6 +5,7 @@
 import AutoRacing.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // import java.time.LocalDate;
@@ -44,28 +45,55 @@ public class Main {
             System.out.println(truck);
             autos.add(truck);
         }
-        System.out.println("   ************* в нашей конюшне "+ autos.size() +" автомобилей ************* \n");
+        System.out.println("   ************* в нашей конюшне " + autos.size() + " автомобилей ************* \n");
 //   собрали в один список все автомобили, дальше "нанимаем" водителей
 
-        Driver<Car> ivanov = new Driver<>("Иванов", "Иван", "Иванович", 'b', 18, cars[1]);
-        Driver<Bus> petrov = new Driver<>("Петров", "Петр", "Петрович", 'd', 19, buses[2]);
-        Driver<Truck> stepanov = new Driver<>("Степанов", "Степан", "Степанич", 'C', 15, trucks[0]);
+        Driver<Car> ivanov = new Driver<>("Иванов", "Степан", "Петрович", 'b', 18, cars[1]);
+        Driver<Bus> petrov = new Driver<>("Петров", "Иван", "Степанич", 'd', 19, buses[2]);
+        Driver<Truck> stepanov = new Driver<>("Степанов", "Петр", "Иванович", 'C', 15, trucks[0]);
         System.out.println(ivanov);
         System.out.println(petrov);
         System.out.println(stepanov);
 
-        DriverB ivan = new DriverB("Иванов", "Иван", "Иванович", 'B', 19, cars[2]);
-        DriverC petr = new DriverC("Петров", "Петр", "Петрович", 'с', 21, trucks[3]);
-        DriverD stepan = new DriverD("Степанов", "Степан", "Степанич", 'д', 17, buses[1]);
-        System.out.println(ivan);
-        System.out.println(petr);
-        System.out.println(stepan);
+        List<Driver> drivers = new ArrayList<>();
+        DriverB[] driversB = new DriverB[4];
+//   на легковых авто гоняет семья Ивановых
+        driversB[0] = new DriverB("Иванов", "Артем", "Иванович", 'B', 7, cars[0]);
+        driversB[1] = new DriverB("Иванов", "Сергей", "Иванович", 'B', 19, cars[1]);
+        driversB[2] = new DriverB("Иванов", "Иван", "Иванович", 'B', 25, cars[2]);
+        driversB[3] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
+        for (DriverB dB : driversB) {
+//            System.out.println(dB);
+            drivers.add(dB);
+        }
+
+        DriverC[] driversC = new DriverC[4];
+//   на грузовиках гоняет семья Степановых
+        driversC[0] = new DriverC("Степанов", "Степан", "Степанич", 'C', 27, trucks[0]);
+        driversC[1] = new DriverC("Степанов", "Анатоллий", "Степанич", 'C', 31, trucks[1]);
+        driversC[2] = new DriverC("Степанов", "Борис", "Степанич", 'C', 17, trucks[2]);
+        driversC[3] = new DriverC("Степанов", "Дмитрий", "Степанич", 'C', 12, trucks[3]);
+        drivers.addAll(Arrays.asList(driversC));
+
+        DriverD[] driversD = new DriverD[5];
+//   на автобусах гоняет семья Петровых
+        driversD[0] = new DriverD("Петров", "Петр", "Петрович", 'D', 33,buses[0]);
+        driversD[1] = new DriverD("Петров", "Эдуард", "Николаевич", 'D', 26,buses[1]);
+        driversD[2] = new DriverD("Петров", "Арсений", "Петрович", 'D', 8,buses[2]);
+        driversD[3] = new DriverD("Петров", "Алексей", "Петрович", 'D', 11,buses[3]);
+        driversD[4] = new DriverD("Петров", "Илья", "Петрович", 'D', 6,buses[4]);
+        drivers.addAll(Arrays.asList(driversD));
+//    наши автомеханики:
+        AutoMechanic[] autoMechanics = new AutoMechanic[4];
+        autoMechanics[0] = new AutoMechanic("Кулибин","Всё починим", MechanicCategory.ALL_AUTO);
+        autoMechanics[1] = new AutoMechanic("Карский","Car Service", MechanicCategory.CAR);
+        autoMechanics[2] = new AutoMechanic("Трактенберг","Truck Service", MechanicCategory.TRUCK);
+        autoMechanics[3] = new AutoMechanic("Басов","Bus Service", MechanicCategory.BUS);
 
         Car.goToDiagnostic(cars[2]);
         Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);
-
-        checkDriver(ivan, petr, stepan);
+        checkDriver(ivanov, petrov, stepanov);
 
 // вводим данные страхового полиса
 //        LocalDate polisDate = LocalDate.of(2022, 11, 28);

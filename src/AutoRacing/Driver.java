@@ -26,9 +26,9 @@ public class Driver <T extends Auto> {
         this.license = true;
     }
 
-    public static void startMoving(){};
-    private static void stopMoving(){};
-    private static void refuel(){};
+//    public static void startMoving(){};
+//    private static void stopMoving(){};
+//    private static void refuel(){};
 
     @Override
     public String toString() {
