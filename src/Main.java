@@ -46,7 +46,6 @@ public class Main {
             System.out.println(bus);
             autos.add(bus);
         }
-        buses[3].goToRegularService(mechanics);
 
         Truck[] trucks = new Truck[4];
         trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2, mechanics);
@@ -58,10 +57,9 @@ public class Main {
             System.out.println(truck);
             autos.add(truck);
         }
-        trucks[3].goToRegularService(mechanics);
+
         System.out.println("   ************* в нашей конюшне " + autos.size() + " автомобилей ************* \n");
 //   собрали в один список все автомобили, дальше "нанимаем" водителей
-        cars[1].goToRegularService(mechanics);
 
         Driver<Car> ivanov = new Driver<>("Иванов", "Степан", "Петрович", 'b', 18, cars[1]);
         Driver<Bus> petrov = new Driver<>("Петров", "Иван", "Степанич", 'd', 19, buses[2]);
@@ -110,6 +108,15 @@ public class Main {
         bus7.doRegularService ( mechanicList );
         truck6.doRegularService ( mechanicList );
 */
+
+        cars[1].goToRegularService(mechanics);
+        trucks[3].goToRegularService(mechanics);
+        buses[3].goToRegularService(mechanics);
+
+        cars[3].goToRepair(mechanics);
+        trucks[0].goToRepair(mechanics);
+        buses[2].goToRepair(mechanics);
+
         Car.goToDiagnostic(cars[2]);
         Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);

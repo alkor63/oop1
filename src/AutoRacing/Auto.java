@@ -59,7 +59,9 @@ public abstract class Auto {
     public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
 
  */
-public abstract void goToRegularService( List<AutoMechanic> autoMechanic);
+public abstract void goToRegularService(List<AutoMechanic> autoMechanic);
 // У нас для регулярного ТО достаточно 1 механика
 
+public abstract void goToRepair(List<AutoMechanic> autoMechanic);
+// У нас для регмонта авто нужно 2 механика
 }

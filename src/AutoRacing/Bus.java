@@ -101,4 +101,33 @@ public class Bus extends Auto implements Competing {
             }
         }
     }
+
+    @Override
+    public void goToRepair(List<AutoMechanic> autoMechanic) {
+        int minNumMechanics = 2;   // минимальное количество механиков лдя проведения ремонта
+        if (autoMechanic.size() < minNumMechanics) {
+            System.out.println("Произвести ремонт невозможно - нет доступнух механиков");
+        } else {
+            int count = 0;
+            for (AutoMechanic mech : autoMechanic) {
+                if (mech.getMechanicCategory() == MechanicCategory.BUS || mech.getMechanicCategory() == MechanicCategory.ALL_AUTO)
+                    count++;
+                if (count >= minNumMechanics) break;
+            }
+            if (count < minNumMechanics) {
+                System.out.println("Произвести ремонт невозможно - нет достаточного количества механиков нужной категории");
+                return;
+            }
+// Доступные механики нужной категории есть в достаточном количестве, незовем их:
+            System.out.println("Ремонтировать автобус " + getBrand() + " " + getModel() + " будут: ");
+            for (AutoMechanic mech : autoMechanic) {
+                count = 1;
+                if (mech.getMechanicCategory() == MechanicCategory.BUS || mech.getMechanicCategory() == MechanicCategory.ALL_AUTO) {
+                    System.out.println(mech);
+                    count++;
+                    if (count > minNumMechanics) break;
+                    }
+            }
+        }
+    }
 }
