@@ -1,6 +1,7 @@
 package AutoRacing;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Car extends Auto implements Competing{
 
@@ -11,10 +12,18 @@ public class Car extends Auto implements Competing{
     public Car(String brand, String model, double engineVolume, CarType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
-        count ++;
+        count++;
         bestLapTime(count);
         maxSpeed(count);
+    }
 //        printType(bodyType);
+            public Car(String brand, String model, double engineVolume, CarType bodyType, List<AutoMechanic> autoMechanic) {
+            super(brand, model, engineVolume);
+            this.autoMechanic = autoMechanic;
+            this.bodyType = bodyType;
+            count ++;
+            bestLapTime(count);
+            maxSpeed(count);
     }
     public void startEngine(){
         System.out.println("Запустили "+getEngineVolume()+"л двигатель автомобиля "+getBrand()+" "+getModel());

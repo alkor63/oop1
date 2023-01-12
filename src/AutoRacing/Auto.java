@@ -1,12 +1,14 @@
 package AutoRacing;
 
-public class Auto {
+import java.util.List;
+
+public abstract class Auto {
 
     private final String brand;
     private final String model;
     private double engineVolume;
 
-
+    List<AutoMechanic> autoMechanic;
     public Auto(String brand, String model, double engineVolume) {
 
         if (nullString(brand)) brand = "default brand";
@@ -16,7 +18,16 @@ public class Auto {
         this.model = model;
         setEngineVolume(engineVolume);
     }
+    public Auto(String brand, String model, double engineVolume, List<AutoMechanic> autoMechanic) {
 
+        if (nullString(brand)) brand = "default brand";
+        if (nullString(model)) model = "default model";
+
+        this.brand = brand;
+        this.model = model;
+        setEngineVolume(engineVolume);
+        this.autoMechanic = autoMechanic;
+    }
     public String getBrand() {
         return brand;
     }

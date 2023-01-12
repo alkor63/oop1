@@ -12,23 +12,35 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IllegalLicenseException {
+
+        //    наши автомеханики:
+
+        AutoMechanic[] autoMechanics = new AutoMechanic[4];
+        autoMechanics[0] = new AutoMechanic("Кулибин","Всё починим", MechanicCategory.ALL_AUTO);
+        autoMechanics[1] = new AutoMechanic("Карский","Car Service", MechanicCategory.CAR);
+        autoMechanics[2] = new AutoMechanic("Трактенберг","Truck Service", MechanicCategory.TRUCK);
+        autoMechanics[3] = new AutoMechanic("Басов","Bus Service", MechanicCategory.BUS);
+        List<AutoMechanic> mechanics = new ArrayList<>(Arrays.asList(autoMechanics));
+
+
+
         List<Auto> autos = new ArrayList<>();
         Car[] cars = new Car[4];
-        cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP);
-        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN);
-        cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE);
-        cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK);
+        cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP, mechanics);
+        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN, mechanics);
+        cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE, mechanics);
+        cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK, mechanics);
 
         for (Car car : cars) {
             System.out.println(car);
             autos.add(car);
         }
         Bus[] buses = new Bus[5];
-        buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL);
-        buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE);
-        buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE);
-        buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM);
-        buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL);
+        buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL, mechanics);
+        buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE, mechanics);
+        buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE, mechanics);
+        buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM, mechanics);
+        buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL, mechanics);
 
         for (Bus bus : buses) {
             System.out.println(bus);
@@ -36,10 +48,10 @@ public class Main {
         }
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2);
-        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1);
-        trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2);
-        trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3);
+        trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2, mechanics);
+        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1, mechanics);
+        trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2, mechanics);
+        trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3, mechanics);
 
         for (Truck truck : trucks) {
             System.out.println(truck);
@@ -83,13 +95,17 @@ public class Main {
         driversD[3] = new DriverD("Петров", "Алексей", "Петрович", 'D', 11,buses[3]);
         driversD[4] = new DriverD("Петров", "Илья", "Петрович", 'D', 6,buses[4]);
         drivers.addAll(Arrays.asList(driversD));
-//    наши автомеханики:
-        AutoMechanic[] autoMechanics = new AutoMechanic[4];
-        autoMechanics[0] = new AutoMechanic("Кулибин","Всё починим", MechanicCategory.ALL_AUTO);
-        autoMechanics[1] = new AutoMechanic("Карский","Car Service", MechanicCategory.CAR);
-        autoMechanics[2] = new AutoMechanic("Трактенберг","Truck Service", MechanicCategory.TRUCK);
-        autoMechanics[3] = new AutoMechanic("Басов","Bus Service", MechanicCategory.BUS);
+        System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
+//   собрали в один список всех водителей
+/*
+        car8.addMechanicTeamRacing ( mechanicList );
+        bus7.addMechanicTeamRacing ( mechanicList );
+        truck7.addMechanicTeamRacing ( mechanicList );
 
+        car8.doRegularService ( mechanicList );
+        bus7.doRegularService ( mechanicList );
+        truck6.doRegularService ( mechanicList );
+*/
         Car.goToDiagnostic(cars[2]);
         Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);

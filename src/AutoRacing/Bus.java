@@ -1,29 +1,43 @@
 package AutoRacing;
 
-public class Bus extends Auto implements Competing{
+import java.util.List;
+
+public class Bus extends Auto implements Competing {
     BusType busType;
     static int count;
     public static final int[] MAX_SPEED = {96, 92, 98, 97, 111};
     public static final double[] TOP_LAP = {3.16, 3.11, 3.30, 3.25, 2.99};
+
     public Bus(String brand, String model, double engineVolume, BusType busType) {
         super(brand, model, engineVolume);
         this.busType = busType;
-        count ++;
+        count++;
         bestLapTime(count);
         maxSpeed(count);
 //        printType(busType);
     }
 
-    public void startEngine(){
-        System.out.println("Запустили "+getEngineVolume()+"л двигатель автобуса "+getBrand()+" "+getModel());
+    public Bus(String brand, String model, double engineVolume, BusType busType, List<AutoMechanic> autoMechanic) {
+        super(brand, model, engineVolume);
+        this.busType = busType;
+        this.autoMechanic = autoMechanic;
+        count++;
+        bestLapTime(count);
+        maxSpeed(count);
     }
-    public void stopEngine(){
-        System.out.println("Остановили "+getEngineVolume()+"л двигатель автобуса "+getBrand()+" "+getModel());
+
+    public void startEngine() {
+        System.out.println("Запустили " + getEngineVolume() + "л двигатель автобуса " + getBrand() + " " + getModel());
     }
+
+    public void stopEngine() {
+        System.out.println("Остановили " + getEngineVolume() + "л двигатель автобуса " + getBrand() + " " + getModel());
+    }
+
     @Override
     public String toString() {
-        return "автобус "+getBrand()+" "+getModel()+" с двигаталем "+getEngineVolume()+
-                " л, вместимость "+ busType.getCapacity();
+        return "автобус " + getBrand() + " " + getModel() + " с двигаталем " + getEngineVolume() +
+                " л, вместимость " + busType.getCapacity();
     }
 
     @Override
@@ -34,21 +48,22 @@ public class Bus extends Auto implements Competing{
     @Override
     public int maxSpeed(int i) {
 //        System.out.println("Max speed of bus = " +MAX_SPEED[i-1]+" km/h");
-        return MAX_SPEED[i-1];
+        return MAX_SPEED[i - 1];
     }
 
     @Override
     public double bestLapTime(int i) {
 //        System.out.println("Lap top = "+TOP_LAP[i-1] +" min");
-        return TOP_LAP[i-1];
+        return TOP_LAP[i - 1];
     }
+
     public void printType(BusType type) {
         if (nullString(String.valueOf(type))) {
             System.out.println(" Данных по транспортному средству недостаточно");
-        }
-        else System.out.println("ТИП ТС = " +type);
+        } else System.out.println("ТИП ТС = " + type);
     }
-    public static void goToDiagnostic(Bus bus){
+
+    public static void goToDiagnostic(Bus bus) {
         throw new RuntimeException("Автобусы НЕ могут проходить диагностику!!!");
     }
 }

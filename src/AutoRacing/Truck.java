@@ -1,5 +1,7 @@
 package AutoRacing;
 
+import java.util.List;
+
 public class Truck extends Auto implements Competing {
     TruckType truckType;
     static int count;
@@ -15,7 +17,15 @@ public class Truck extends Auto implements Competing {
         maxSpeed(count);
 //        printType(truckType);
     }
-
+    public Truck(String brand, String model, double engineVolume, TruckType truckType, List<AutoMechanic> autoMechanic) {
+        super(brand, model, engineVolume);
+        this.truckType = truckType;
+        this.autoMechanic = autoMechanic;
+        count++;
+        bestLapTime(count);
+        maxSpeed(count);
+//        printType(truckType);
+    }
 
     public void startEngine() {
         System.out.println("Запустили " + getEngineVolume() + "л двигатель грузовика " + getBrand() + " " + getModel());
