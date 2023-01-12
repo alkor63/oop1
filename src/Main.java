@@ -16,10 +16,10 @@ public class Main {
         //    наши автомеханики:
 
         AutoMechanic[] autoMechanics = new AutoMechanic[4];
-        autoMechanics[0] = new AutoMechanic("Кулибин","Всё починим", MechanicCategory.ALL_AUTO);
+        autoMechanics[3] = new AutoMechanic("Кулибин","Всё починим", MechanicCategory.ALL_AUTO);
         autoMechanics[1] = new AutoMechanic("Карский","Car Service", MechanicCategory.CAR);
         autoMechanics[2] = new AutoMechanic("Трактенберг","Truck Service", MechanicCategory.TRUCK);
-        autoMechanics[3] = new AutoMechanic("Басов","Bus Service", MechanicCategory.BUS);
+        autoMechanics[0] = new AutoMechanic("Басов","Bus Service", MechanicCategory.BUS);
         List<AutoMechanic> mechanics = new ArrayList<>(Arrays.asList(autoMechanics));
 
 
@@ -46,6 +46,7 @@ public class Main {
             System.out.println(bus);
             autos.add(bus);
         }
+        buses[3].goToRegularService(mechanics);
 
         Truck[] trucks = new Truck[4];
         trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2, mechanics);
@@ -57,8 +58,10 @@ public class Main {
             System.out.println(truck);
             autos.add(truck);
         }
+        trucks[3].goToRegularService(mechanics);
         System.out.println("   ************* в нашей конюшне " + autos.size() + " автомобилей ************* \n");
 //   собрали в один список все автомобили, дальше "нанимаем" водителей
+        cars[1].goToRegularService(mechanics);
 
         Driver<Car> ivanov = new Driver<>("Иванов", "Степан", "Петрович", 'b', 18, cars[1]);
         Driver<Bus> petrov = new Driver<>("Петров", "Иван", "Степанич", 'd', 19, buses[2]);
@@ -97,7 +100,8 @@ public class Main {
         drivers.addAll(Arrays.asList(driversD));
         System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
 //   собрали в один список всех водителей
-/*
+/*      driverList.forEach ( System.out::println );
+
         car8.addMechanicTeamRacing ( mechanicList );
         bus7.addMechanicTeamRacing ( mechanicList );
         truck7.addMechanicTeamRacing ( mechanicList );

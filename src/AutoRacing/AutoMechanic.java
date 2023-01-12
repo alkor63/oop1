@@ -60,8 +60,7 @@ public class AutoMechanic {
 
     @Override
     public String toString() {
-        return " автомеханик " + mechanicName + " (фирма " + firma + "), категория " + mechanicCategory +
-                '}';
+        return " автомеханик " + mechanicName + " (фирма " + firma + "), категория " + mechanicCategory;
     }
 }
 

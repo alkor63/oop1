@@ -17,6 +17,7 @@ public class Truck extends Auto implements Competing {
         maxSpeed(count);
 //        printType(truckType);
     }
+
     public Truck(String brand, String model, double engineVolume, TruckType truckType, List<AutoMechanic> autoMechanic) {
         super(brand, model, engineVolume);
         this.truckType = truckType;
@@ -67,5 +68,19 @@ public class Truck extends Auto implements Competing {
     public static void goToDiagnostic(Truck truck) {
         System.out.println("Грузовику " + truck.getBrand() + " " + truck.getModel() +
                 " с двигаталем " + truck.getEngineVolume() + " л нужно пройти диагностику");
+    }
+
+    @Override
+    public void goToRegularService(List<AutoMechanic> autoMechanic) {
+        if (autoMechanic.size() == 0) {
+            System.out.println("Пройти ТО невозможно - нет доступнух механиков");
+        } else {
+            for (AutoMechanic mech : autoMechanic) {
+                if (mech.getMechanicCategory() == MechanicCategory.TRUCK || mech.getMechanicCategory() == MechanicCategory.ALL_AUTO) {
+                    System.out.println("Регулярный ТО грузовика " + getBrand() + " " + getModel() + " будет проводить " + mech);
+                    break;
+                }
+            }
+        }
     }
 }

@@ -63,7 +63,42 @@ public class Bus extends Auto implements Competing {
         } else System.out.println("ТИП ТС = " + type);
     }
 
-    public static void goToDiagnostic(Bus bus) {
+    public void goToDiagnostic(Bus bus) {
         throw new RuntimeException("Автобусы НЕ могут проходить диагностику!!!");
+    }
+/*
+    @Override
+    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+        System.out.println ("Автобус " + getBrand() + " " + getModel() + ", объем двигателя " + getEngineVolume());
+        for (Mechanic value : mechanic)
+        { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_BUS||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
+        {System.out.println ( "- обслуживает " + value);}
+        }
+    }
+
+
+    @Override
+    public void doRegularService(List<Mechanic> mechanics) {
+        System.out.println ("Механики :");
+        for (Mechanic value : mechanic)
+        { if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_CAR||value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL)
+        {System.out.println ( "- " + value);}
+        }
+        System.out.println ("производят регулярное ТО на автомобиле " + getBrand ()+" "+getModel ());
+    }
+ */
+
+    @Override
+    public void goToRegularService(List<AutoMechanic> autoMechanic) {
+        if (autoMechanic.size() == 0) {
+            System.out.println("Пройти ТО невозможно - нет доступнух механиков");
+        } else {
+            for (AutoMechanic mech : autoMechanic) {
+                if (mech.getMechanicCategory() == MechanicCategory.BUS || mech.getMechanicCategory() == MechanicCategory.ALL_AUTO) {
+                    System.out.println("Регулярный ТО автобуса " + getBrand() + " " + getModel() + " будет проводить " + mech);
+                    break;
+                }
+            }
+        }
     }
 }
