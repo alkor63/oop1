@@ -53,12 +53,8 @@ public abstract class Auto {
     public void printType(){}
     public void goToDiagnostic(){}
 
-/*
-    public abstract void getDiagnosisTransport() throws CantDiagnosisException;
 
-    public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
 
- */
 public abstract void goToRegularService(List<AutoMechanic> autoMechanic);
 // У нас для регулярного ТО достаточно 1 механика
 
