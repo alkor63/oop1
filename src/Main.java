@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static AutoRacing.AutoService.*;
+
 // import java.time.LocalDate;
 
 public class Main {
@@ -107,9 +109,9 @@ public class Main {
         trucks[0].goToRepair(mechanics);
         buses[2].goToRepair(mechanics);
 
-        autoDriverAunMechanic(2, autos, drivers, mechanics);
-        autoDriverAunMechanic(5, autos, drivers, mechanics);
-        autoDriverAunMechanic(11, autos, drivers, mechanics);
+        autoDriverAndMechanic(2, autos, drivers, mechanics);
+        autoDriverAndMechanic(5, autos, drivers, mechanics);
+        autoDriverAndMechanic(11, autos, drivers, mechanics);
 
 //        Car.goToDiagnostic(cars[2]);
 //        Truck.goToDiagnostic(trucks[1]);
@@ -127,15 +129,6 @@ public class Main {
 
 //    }
 
-    public static void checkDriver(Driver... drivers) throws IllegalLicenseException {
-        for (Driver driver : drivers) {
-            try {
-                checkCategory(driver);
-            } catch (IllegalLicenseException e) {
-                System.out.println("Водителю " + driver.getName() + " " + driver.getLastName() + e.getMessage());
-            }
-        }
-    }
 
     public static void checkCategory(Driver driver) throws IllegalLicenseException {
         if ((driver.getCategory()) < 'B' || driver.getCategory() > 'Д') {
@@ -143,38 +136,4 @@ public class Main {
         }
     }
 
-    public static void autoDriverAunMechanic(int number, List<Auto> autos, List<Driver> drivers, List<AutoMechanic> mechanics) {
-        if (number > autos.size()) {
-            System.out.println("У нас меньше, чем " + number + " автомобилей");
-            return;
-        }
-        if (number > drivers.size()) {
-            System.out.println("У " + number + "-го автомобиля пока нет водителя");
-            return;
-        }
-        Auto auto = autos.get(number);
-        Driver driver = drivers.get(number);
-        char driverCategory = driver.getCategory();
-        MechanicCategory mc;
-        switch (driverCategory) {
-            case 'B':
-                mc = MechanicCategory.CAR;
-                break;
-            case 'C':
-                mc = MechanicCategory.TRUCK;
-                break;
-            case 'D':
-                mc = MechanicCategory.BUS;
-                break;
-            default:
-                mc = MechanicCategory.ALL_AUTO;
-                break;
-        }
-        System.out.print("Автомобилем " + auto.getBrand() + " " + auto.getModel() + " управляет водитель " + driver.getName() + " " + driver.getLastName() + ", а обслуживает");
-        for (AutoMechanic mech : mechanics) {
-            if (mech.getMechanicCategory() == mc) {
-                System.out.println(mech);
-            }
-        }
-    }
 }
