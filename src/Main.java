@@ -170,7 +170,6 @@ public class Main {
                 mc = MechanicCategory.ALL_AUTO;
                 break;
         }
-
         System.out.print("Автомобилем " + auto.getBrand() + " " + auto.getModel() + " управляет водитель " + driver.getName() + " " + driver.getLastName() + ", а обслуживает");
         for (AutoMechanic mech : mechanics) {
             if (mech.getMechanicCategory() == mc) {
