@@ -1,10 +1,13 @@
 package AutoRacing;
 import java.time.LocalDate;
+import java.util.ArrayDeque;
 import java.util.List;
+import java.util.Queue;
+import AutoRacing.Auto;
 
 public class AutoService {
 
-
+//private final Queue<Auto<T>> autoQueue = new ArrayDeque<>();
 
 /*
     public static boolean insDateOK(LocalDate insDate) {

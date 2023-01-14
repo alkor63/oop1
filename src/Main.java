@@ -4,9 +4,7 @@
 
 import AutoRacing.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static AutoRacing.AutoService.*;
 
@@ -113,6 +111,11 @@ public class Main {
         autoDriverAndMechanic(5, autos, drivers, mechanics);
         autoDriverAndMechanic(11, autos, drivers, mechanics);
 
+        Map<Auto, AutoMechanic> mechanicMap = new HashMap<>();
+        mechanicMap.put(cars[1],autoMechanics[1]);
+        mechanicMap.put(trucks[1],autoMechanics[2]);
+        mechanicMap.put(buses[0],autoMechanics[0]);
+        System.out.println("В этой ячейке Мапы лежит ключ = авто "+cars[1]+" + значение = "+mechanicMap.get(cars[1]));
 //        Car.goToDiagnostic(cars[2]);
 //        Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);
