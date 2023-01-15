@@ -111,11 +111,15 @@ public class Main {
         autoDriverAndMechanic(5, autos, drivers, mechanics);
         autoDriverAndMechanic(11, autos, drivers, mechanics);
 
+        System.out.println("Трансформируем список в МАР (ключ - авто, значение - механик");
         Map<Auto, AutoMechanic> mechanicMap = new HashMap<>();
-        mechanicMap.put(cars[1],autoMechanics[1]);
-        mechanicMap.put(trucks[1],autoMechanics[2]);
-        mechanicMap.put(buses[0],autoMechanics[0]);
-        System.out.println("В этой ячейке Мапы лежит ключ = авто "+cars[1]+" + значение = "+mechanicMap.get(cars[1]));
+        for (int i=0; i < autos.size(); i++) {
+            if (autos.get(i) == null) break;
+            mechanicMap.put(autos.get(i), autos.get(i).getAutoMechanic().get(3));
+//        mechanicMap.put(trucks[1],autoMechanics[2]);
+//        mechanicMap.put(buses[0],autoMechanics[0]);
+            System.out.println("В этой ячейке Мапы лежит ключ = авто " + autos.get(i) + "\n + значение = " + autos.get(i).getAutoMechanic().get(3));
+        }
 //        Car.goToDiagnostic(cars[2]);
 //        Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);

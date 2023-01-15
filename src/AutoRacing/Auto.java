@@ -1,6 +1,7 @@
 package AutoRacing;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Auto {
 
@@ -36,6 +37,22 @@ public abstract class Auto {
         return model;
     }
 
+    public List<AutoMechanic> getAutoMechanic() {
+        return autoMechanic;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auto auto = (Auto) o;
+        return Double.compare(auto.engineVolume, engineVolume) == 0 && Objects.equals(brand, auto.brand) && Objects.equals(model, auto.model) && Objects.equals(autoMechanic, auto.autoMechanic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, autoMechanic);
+    }
 
     public double getEngineVolume() {
         return engineVolume;
