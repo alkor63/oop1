@@ -74,11 +74,10 @@ public class Main {
         driversB[1] = new DriverB("Иванов", "Сергей", "Иванович", 'B', 19, cars[1]);
         driversB[2] = new DriverB("Иванов", "Иван", "Иванович", 'B', 25, cars[2]);
         driversB[3] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
-        // !!! duplicate !!!
+// !!! duplicate !!!
         driversB[4] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
         for (DriverB dB : driversB) {
-//            System.out.println(dB);
-            drivers.add(dB);
+            if (!drivers.contains(dB)) drivers.add(dB);
         }
 
         DriverC[] driversC = new DriverC[4];
@@ -87,8 +86,9 @@ public class Main {
         driversC[1] = new DriverC("Степанов", "Анатолий", "Степанич", 'C', 31, trucks[1]);
         driversC[2] = new DriverC("Степанов", "Борис", "Степанич", 'C', 17, trucks[2]);
         driversC[3] = new DriverC("Степанов", "Дмитрий", "Степанич", 'C', 12, trucks[3]);
-        drivers.addAll(Arrays.asList(driversC));
-
+        for (DriverC dB : driversC) {
+            if (!drivers.contains(dB)) drivers.add(dB);
+        }
         DriverD[] driversD = new DriverD[5];
 //   на автобусах гоняет семья Петровых
         driversD[0] = new DriverD("Петров", "Петр", "Петрович", 'D', 33, buses[0]);
@@ -96,8 +96,9 @@ public class Main {
         driversD[2] = new DriverD("Петров", "Арсений", "Петрович", 'D', 8, buses[2]);
         driversD[3] = new DriverD("Петров", "Алексей", "Петрович", 'D', 11, buses[3]);
         driversD[4] = new DriverD("Петров", "Илья", "Петрович", 'D', 6, buses[4]);
-        drivers.addAll(Arrays.asList(driversD));
-        System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
+        for (DriverD dB : driversD) {
+            if (!drivers.contains(dB)) drivers.add(dB);
+        }        System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
 //   собрали в один список всех водителей
 //    driverList.forEach ( System.out::println );
 
@@ -111,30 +112,33 @@ public class Main {
 
         autoDriverAndMechanic(2, autos, drivers, mechanics);
         autoDriverAndMechanic(5, autos, drivers, mechanics);
-        autoDriverAndMechanic(11, autos, drivers, mechanics);
+        autoDriverAndMechanic(12, autos, drivers, mechanics);
 
         // проверим список на предмет водителей - двойников
         System.out.println("*** проверим список на предмет водителей - двойников ***");
 
-int listSize = drivers.size();
-        System.out.println("в проверяемом списке "+listSize+" элементов");
-        for (int j = 0; j < drivers.size(); j++) { Driver d = drivers.get(j);
-        for (int i=j+1; i < drivers.size(); i++) {
-            if (d.hashCode() == drivers.get(i).hashCode() && drivers.get(i).equals(d)){
-                System.out.println("!!! в списке обнаружен двойник под индексами " + i + " и " + j);
-            System.out.println("index"+j+" : "+d);
-            System.out.println("index"+i+" : "+drivers.get(i));
-            System.out.println("!!! удалаям его из списка !!!");
-            drivers.remove(j);}
-        }}
+        int listSize = drivers.size();
+        System.out.println("в проверяемом списке " + listSize + " элементов");
+        for (int j = 0; j < drivers.size(); j++) {
+            Driver d = drivers.get(j);
+            for (int i = drivers.size() - 1; i > j; i--) {
+                if (d.hashCode() == drivers.get(i).hashCode() && drivers.get(i).equals(d)) {
+                    System.out.println("!!! в списке обнаружен двойник под индексами " + i + " и " + j);
+                    System.out.println("index" + j + " : " + d);
+                    System.out.println("index" + i + " : " + drivers.get(i));
+                    System.out.println("!!! удалаям его из списка !!!");
+                    drivers.remove(j);
+                }
+            }
+        }
         if (listSize == drivers.size())
             System.out.println("*** в списке объектоа-двойников не обнаружено ***");
-        else System.out.println("*** теперь в списке "+drivers.size()+" элементов ***");
+        else System.out.println("*** теперь в списке " + drivers.size() + " элементов ***");
 
 
         System.out.println("Трансформируем список в МАР (ключ - авто, значение - механик");
         Map<Auto, AutoMechanic> mechanicMap = new HashMap<>();
-        for (int i=0; i < autos.size(); i++) {
+        for (int i = 0; i < autos.size(); i++) {
             if (autos.get(i) == null) break;
 
 // ******************** MAP **********************
