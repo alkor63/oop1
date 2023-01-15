@@ -37,7 +37,8 @@ public class Main {
 
         Truck[] trucks = new Truck[4];
         trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2, mechanics);
-        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1, mechanics);
+//        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1, mechanics);
+        trucks[1] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2, mechanics);
         trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2, mechanics);
         trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3, mechanics);
 
@@ -98,7 +99,8 @@ public class Main {
         driversD[4] = new DriverD("Петров", "Илья", "Петрович", 'D', 6, buses[4]);
         for (DriverD dB : driversD) {
             if (!drivers.contains(dB)) drivers.add(dB);
-        }        System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
+        }
+        System.out.println("   ************* у нас есть " + drivers.size() + " водителей нужных категорий ************* \n");
 //   собрали в один список всех водителей
 //    driverList.forEach ( System.out::println );
 
@@ -115,26 +117,9 @@ public class Main {
         autoDriverAndMechanic(12, autos, drivers, mechanics);
 
         // проверим список на предмет водителей - двойников
-        System.out.println("*** проверим список на предмет водителей - двойников ***");
-
-        int listSize = drivers.size();
-        System.out.println("в проверяемом списке " + listSize + " элементов");
-        for (int j = 0; j < drivers.size(); j++) {
-            Driver d = drivers.get(j);
-            for (int i = drivers.size() - 1; i > j; i--) {
-                if (d.hashCode() == drivers.get(i).hashCode() && drivers.get(i).equals(d)) {
-                    System.out.println("!!! в списке обнаружен двойник под индексами " + i + " и " + j);
-                    System.out.println("index" + j + " : " + d);
-                    System.out.println("index" + i + " : " + drivers.get(i));
-                    System.out.println("!!! удалаям его из списка !!!");
-                    drivers.remove(j);
-                }
-            }
-        }
-        if (listSize == drivers.size())
-            System.out.println("*** в списке объектоа-двойников не обнаружено ***");
-        else System.out.println("*** теперь в списке " + drivers.size() + " элементов ***");
-
+        System.out.println("*** проверим списоки на предмет объектов - двойников ***");
+        checkTwin( autos );
+        checkTwin( drivers );
 
         System.out.println("Трансформируем список в МАР (ключ - авто, значение - механик");
         Map<Auto, AutoMechanic> mechanicMap = new HashMap<>();
@@ -170,4 +155,24 @@ public class Main {
         }
     }
 
+    public static List checkTwin(List<?> objects) {
+        int listSize = objects.size();
+        System.out.println("в проверяемом списке " + listSize + " элементов");
+        for (int j = 0; j < objects.size(); j++) {
+             Object d = objects.get(j);
+            for (int i = objects.size() - 1; i > j; i--) {
+                if (d.hashCode() == objects.get(i).hashCode() && objects.get(i).equals(d)) {
+                    System.out.println("!!! в списке обнаружен двойник под индексами " + i + " и " + j);
+                    System.out.println("index" + j + " : " + d);
+                    System.out.println("index" + i + " : " + objects.get(i));
+                    System.out.println("!!! удалаям его из списка !!!");
+                    objects.remove(j);
+                }
+            }
+        }
+        if (listSize == objects.size()) {
+            System.out.println("*** в списке объектоа-двойников не обнаружено ***");
+        } else System.out.println("*** теперь в списке " + objects.size() + " элементов ***");
+        return objects;
+    }
 }
