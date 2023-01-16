@@ -21,7 +21,10 @@ public class Main {
         autoMechanics[2] = new AutoMechanic("Трактенберг", "Truck Service", MechanicCategory.TRUCK);
         autoMechanics[0] = new AutoMechanic("Басов", "Bus Service", MechanicCategory.BUS);
         List<AutoMechanic> mechanics = new ArrayList<>(Arrays.asList(autoMechanics));
-
+        for (AutoMechanic mechanic : autoMechanics) {
+            System.out.println(mechanic);
+            mechanics.add(mechanic);
+        }
 
         List<Auto> autos = new ArrayList<>();
         Car[] cars = new Car[4];
@@ -132,6 +135,20 @@ public class Main {
 //        mechanicMap.put(buses[0],autoMechanics[0]);
             System.out.println("В этой ячейке Мапы лежит ключ = авто " + autos.get(i) + "\n + значение = " + autos.get(i).getAutoMechanic().get(3));
         }
+//  домашка к уроку 9 : Set, Iterator
+        System.out.println("\n+++ домашка к уроку 9 : Set, Iterator +++");
+        Set<Driver> driverSet = new HashSet<>();
+        for (Driver driver : drivers) {
+            driverSet.add(driver);
+        }
+        System.out.println("+++      в нашем Set "+driverSet.size()+" водителей     +++");
+        System.out.println("   выводим их список через Итератор :");
+        Iterator<Driver> iter = driverSet.iterator();
+        while (iter.hasNext()) {
+            Driver next = iter.next();
+            System.out.println(next);
+        }
+
 //        Car.goToDiagnostic(cars[2]);
 //        Truck.goToDiagnostic(trucks[1]);
 //        Bus.goToDiagnostic(buses[0]);

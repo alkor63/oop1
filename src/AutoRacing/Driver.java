@@ -32,7 +32,7 @@ public class Driver <T extends Auto> {
 
     @Override
     public String toString() {
-        return "Водитель " + lastName +" "+ name+" "+middleName+" (категория "+category+") управляет автомобилем " +  vehicle +" и будет участвовать в заезде";
+        return "Водитель " + lastName +" "+ name+" "+middleName+" (категория "+category+") управляет автомобилем " +  vehicle;
     }
 
     @Override
