@@ -148,6 +148,18 @@ public class Main {
             Driver next = iter.next();
             System.out.println(next);
         }
+        System.out.println("\n+++ аналогично для списка механиков +++");
+        Set<AutoMechanic> mechanicSet = new HashSet<>();
+        for (AutoMechanic mechanic : mechanics) {
+            mechanicSet.add(mechanic);
+        }
+        System.out.println("+++     в нашем Set "+mechanicSet.size()+" механиков     +++");
+        System.out.println("   выводим их список через Итератор :");
+        Iterator<AutoMechanic> iter1 = mechanicSet.iterator();
+        while (iter1.hasNext()) {
+            AutoMechanic next = iter1.next();
+            System.out.println(next);
+        }
 
 //        Car.goToDiagnostic(cars[2]);
 //        Truck.goToDiagnostic(trucks[1]);
