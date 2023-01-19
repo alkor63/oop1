@@ -36,7 +36,7 @@ public class AutoService {
 //        if (numIns.length() != 9)
 //            System.out.println(" !!! "+numIns+" - некорректный номер страховки (должно быть 9 знаков) !!!");
 //    }
-
+/*
     public static void autoDriverAndMechanic(int number, List<Auto> autos, List<Driver> drivers, List<AutoMechanic> mechanics) {
         if (number > autos.size()) {
             System.out.println("У нас меньше, чем " + number + " автомобилей");
@@ -71,4 +71,6 @@ public class AutoService {
             }
         }
     }
+
+ */
 }

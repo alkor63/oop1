@@ -16,49 +16,49 @@ public class Main {
         //    наши автомеханики:
 
         AutoMechanic[] autoMechanics = new AutoMechanic[4];
-        autoMechanics[3] = new AutoMechanic("Кулибин", "Всё починим", MechanicCategory.ALL_AUTO);
-        autoMechanics[1] = new AutoMechanic("Карский", "Car Service", MechanicCategory.CAR);
-        autoMechanics[2] = new AutoMechanic("Трактенберг", "Truck Service", MechanicCategory.TRUCK);
-        autoMechanics[0] = new AutoMechanic("Басов", "Bus Service", MechanicCategory.BUS);
+        autoMechanics[3] = new AutoMechanic("Кулибин", "Всё починим");
+        autoMechanics[1] = new AutoMechanic("Карский", "Car Service");
+        autoMechanics[2] = new AutoMechanic("Трактенберг", "Truck Service");
+        autoMechanics[0] = new AutoMechanic("Басов", "Bus Service");
         List<AutoMechanic> mechanics = new ArrayList<>(Arrays.asList(autoMechanics));
         for (AutoMechanic mechanic : autoMechanics) {
-            System.out.println(mechanic);
+//            System.out.println(mechanic);
             mechanics.add(mechanic);
         }
 
         List<Auto> autos = new ArrayList<>();
         Car[] cars = new Car[4];
-        cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP, mechanics);
-        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN, mechanics);
-        cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE, mechanics);
-        cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK, mechanics);
+        cars[0] = new Car("Nissan", "Primera", 2.0, CarType.PICKUP);
+        cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0, CarType.SEDAN);
+        cars[2] = new Car("BMW", "Z8", 3.0, CarType.COUPE);
+        cars[3] = new Car("Kia", "Sportage", 2.4, CarType.HATCHBACK);
 
         for (Car car : cars) {
-            System.out.println(car);
+ //           System.out.println(car);
             autos.add(car);
         }
 
         Truck[] trucks = new Truck[4];
-        trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2, mechanics);
-//        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1, mechanics);
-        trucks[1] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2, mechanics);
-        trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2, mechanics);
-        trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3, mechanics);
+        trucks[0] = new Truck("MAZ", "6440 RR", 12.5, TruckType.N2);
+        trucks[1] = new Truck("Mercedes", "Zetros", 13.0, TruckType.N1);
+//        trucks[1] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2);
+        trucks[2] = new Truck("Tatra", "Phoenix", 12.5, TruckType.N2);
+        trucks[3] = new Truck("IVECO", "Powerstar", 13.0, TruckType.N3);
 
         for (Truck truck : trucks) {
-            System.out.println(truck);
+//            System.out.println(truck);
             autos.add(truck);
         }
 
         Bus[] buses = new Bus[5];
-        buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL, mechanics);
-        buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE, mechanics);
-        buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE, mechanics);
-        buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM, mechanics);
-        buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL, mechanics);
+        buses[0] = new Bus("МАЗ", "251", 4.8, BusType.SMALL);
+        buses[1] = new Bus("MAN", "Lion's Coach 49", 5.2, BusType.LARGE);
+        buses[2] = new Bus("Volvo", "7700", 6.0, BusType.EXRTA_LARGE);
+        buses[3] = new Bus("Ikarus", "386", 4.6, BusType.MEDIUM);
+        buses[4] = new Bus("GAZelle", "336", 3.6, BusType.EXRTA_SMALL);
 
         for (Bus bus : buses) {
-            System.out.println(bus);
+//            System.out.println(bus);
             autos.add(bus);
         }
         System.out.println("   ************* в нашей конюшне " + autos.size() + " автомобилей ************* \n");
@@ -72,14 +72,14 @@ public class Main {
         System.out.println(stepanov);
 
         List<Driver> drivers = new ArrayList<>();
-        DriverB[] driversB = new DriverB[5];
+        DriverB[] driversB = new DriverB[4];
 //   на легковых авто гоняет семья Ивановых
         driversB[0] = new DriverB("Иванов", "Артем", "Иванович", 'B', 7, cars[0]);
         driversB[1] = new DriverB("Иванов", "Сергей", "Иванович", 'B', 19, cars[1]);
         driversB[2] = new DriverB("Иванов", "Иван", "Иванович", 'B', 25, cars[2]);
         driversB[3] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
 // !!! duplicate !!!
-        driversB[4] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
+//        driversB[4] = new DriverB("Иванов", "Василий", "Иванович", 'B', 9, cars[3]);
         for (DriverB dB : driversB) {
             if (!drivers.contains(dB)) drivers.add(dB);
         }
@@ -107,7 +107,31 @@ public class Main {
 //   собрали в один список всех водителей
 //    driverList.forEach ( System.out::println );
 
-        cars[1].goToRegularService(mechanics);
+        for (int i = 0; i < autos.size(); i++) {
+            autos.get(i).setDriver(drivers.get(i));
+        }
+        autoMechanics[0].addCarType(Bus.class);
+        autoMechanics[1].addCarType(Car.class);
+        autoMechanics[2].addCarType(Truck.class);
+        autoMechanics[3].addCarType(Bus.class);
+        autoMechanics[3].addCarType(Car.class);
+        autoMechanics[3].addCarType(Truck.class);
+        autoMechanics[3].doService(cars[2]);
+        autoMechanics[0].doService(cars[2]);
+        autoMechanics[1].doRepair(trucks[1]);
+        autoMechanics[3].doRepair(trucks[0]);
+
+        cars[0].setThisAutoMechanics(autoMechanics[1]);
+        buses[0].setThisAutoMechanics(autoMechanics[3]);
+        buses[0].setThisAutoMechanics(autoMechanics[0]);
+        trucks[0].setThisAutoMechanics(autoMechanics[2]);
+
+        printMechanicsInfo(cars[0]);
+        printMechanicsInfo(buses[0]);
+        printMechanicsInfo(trucks[0]);
+
+
+/*        cars[1].goToRegularService(mechanics);
         trucks[3].goToRegularService(mechanics);
         buses[3].goToRegularService(mechanics);
 
@@ -119,10 +143,12 @@ public class Main {
         autoDriverAndMechanic(5, autos, drivers, mechanics);
         autoDriverAndMechanic(12, autos, drivers, mechanics);
 
+ */
+
         // проверим список на предмет водителей - двойников
         System.out.println("*** проверим списоки на предмет объектов - двойников ***");
-        checkTwin( autos );
-        checkTwin( drivers );
+//        checkTwin( autos );
+//        checkTwin( drivers );
 
         System.out.println("Трансформируем список в МАР (ключ - авто, значение - механик");
         Map<Auto, AutoMechanic> mechanicMap = new HashMap<>();
@@ -130,10 +156,10 @@ public class Main {
             if (autos.get(i) == null) break;
 
 // ******************** MAP **********************
-            mechanicMap.put(autos.get(i), autos.get(i).getAutoMechanic().get(3));
+//            mechanicMap.put(autos.get(i), autos.get(i).getAutoMechanic().get(3));
 //        mechanicMap.put(trucks[1],autoMechanics[2]);
 //        mechanicMap.put(buses[0],autoMechanics[0]);
-            System.out.println("В этой ячейке Мапы лежит ключ = авто " + autos.get(i) + "\n + значение = " + autos.get(i).getAutoMechanic().get(3));
+//            System.out.println("В этой ячейке Мапы лежит ключ = авто " + autos.get(i) + "\n + значение = " + autos.get(i).getAutoMechanic().get(3));
         }
 //  домашка к уроку 9 : Set, Iterator
         System.out.println("\n+++ домашка к уроку 9 : Set, Iterator +++");
@@ -142,11 +168,11 @@ public class Main {
             driverSet.add(driver);
         }
         System.out.println("+++      в нашем Set "+driverSet.size()+" водителей     +++");
-        System.out.println("   выводим их список через Итератор :");
+//        System.out.println("   выводим их список через Итератор :");
         Iterator<Driver> iter = driverSet.iterator();
         while (iter.hasNext()) {
             Driver next = iter.next();
-            System.out.println(next);
+//            System.out.println(next);
         }
         System.out.println("\n+++ аналогично для списка механиков +++");
         Set<AutoMechanic> mechanicSet = new HashSet<>();
@@ -177,6 +203,15 @@ public class Main {
 
 //    }
 
+    public static void printMechanicsInfo(Auto auto){
+        System.out.format("auto : %s %s %S %n",auto.getClass().getSimpleName(), auto.getBrand(), auto.getModel());
+        System.out.format("driver : %s %n",auto.getDriver());
+        System.out.println(" mechanics:");
+        for (AutoMechanic mechanic : auto.getThisAutoMechanics()){
+            System.out.println(mechanic);
+        }
+        System.out.println("+++++++++++++++++++++++++++");
+    }
 
     public static void checkCategory(Driver driver) throws IllegalLicenseException {
         if ((driver.getCategory()) < 'B' || driver.getCategory() > 'Д') {
