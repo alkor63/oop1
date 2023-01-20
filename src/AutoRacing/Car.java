@@ -19,14 +19,7 @@ public class Car extends Auto implements Competing {
     }
 
     //        printType(bodyType);
-    public Car(String brand, String model, double engineVolume, CarType bodyType, List<AutoMechanic> autoMechanic) {
-        super(brand, model, engineVolume);
-        this.autoMechanic = autoMechanic;
-        this.bodyType = bodyType;
-        count++;
-        bestLapTime(count);
-        maxSpeed(count);
-    }
+
 
     public void startEngine() {
         System.out.println("Запустили " + getEngineVolume() + "л двигатель автомобиля " + getBrand() + " " + getModel());
@@ -69,7 +62,7 @@ public class Car extends Auto implements Competing {
         System.out.println("Автомобилю " + car.getBrand() + " " + car.getModel() + " с двигаталем " + car.getEngineVolume() +
                 " л нужно пройти диагностику");
     }
-
+/*
     @Override
     public void goToRegularService(List<AutoMechanic> autoMechanic) {
         if (autoMechanic.size() == 0) {
@@ -112,4 +105,6 @@ public class Car extends Auto implements Competing {
             }
         }
     }
+
+ */
 }

@@ -17,14 +17,6 @@ public class Bus extends Auto implements Competing {
 //        printType(busType);
     }
 
-    public Bus(String brand, String model, double engineVolume, BusType busType, List<AutoMechanic> autoMechanic) {
-        super(brand, model, engineVolume);
-        this.busType = busType;
-        this.autoMechanic = autoMechanic;
-        count++;
-        bestLapTime(count);
-        maxSpeed(count);
-    }
 
     public void startEngine() {
         System.out.println("Запустили " + getEngineVolume() + "л двигатель автобуса " + getBrand() + " " + getModel());
@@ -86,7 +78,6 @@ public class Bus extends Auto implements Competing {
         }
         System.out.println ("производят регулярное ТО на автомобиле " + getBrand ()+" "+getModel ());
     }
- */
 
     @Override
     public void goToRegularService(List<AutoMechanic> autoMechanic) {
@@ -130,4 +121,6 @@ public class Bus extends Auto implements Competing {
             }
         }
     }
+
+ */
 }

@@ -18,15 +18,6 @@ public class Truck extends Auto implements Competing {
 //        printType(truckType);
     }
 
-    public Truck(String brand, String model, double engineVolume, TruckType truckType, List<AutoMechanic> autoMechanic) {
-        super(brand, model, engineVolume);
-        this.truckType = truckType;
-        this.autoMechanic = autoMechanic;
-        count++;
-        bestLapTime(count);
-        maxSpeed(count);
-//        printType(truckType);
-    }
 
     public void startEngine() {
         System.out.println("Запустили " + getEngineVolume() + "л двигатель грузовика " + getBrand() + " " + getModel());
@@ -69,7 +60,7 @@ public class Truck extends Auto implements Competing {
         System.out.println("Грузовику " + truck.getBrand() + " " + truck.getModel() +
                 " с двигаталем " + truck.getEngineVolume() + " л нужно пройти диагностику");
     }
-
+/*
     @Override
     public void goToRegularService(List<AutoMechanic> autoMechanic) {
         if (autoMechanic.size() == 0) {
@@ -83,7 +74,8 @@ public class Truck extends Auto implements Competing {
             }
         }
     }
-
+*/
+    /*
     @Override
     public void goToRepair(List<AutoMechanic> autoMechanic) {
         int minNumMechanics = 2;   // минимальное количество механиков лдя проведения ремонта
@@ -112,4 +104,5 @@ public class Truck extends Auto implements Competing {
             }
         }
     }
+     */
 }
